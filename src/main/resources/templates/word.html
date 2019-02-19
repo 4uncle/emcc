@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>word</title>
+    <link rel="stylesheet" th:href="@{../pintuer/pintuer.css}" type="text/css">
+    <script th:src="@{../pintuer/pintuer.js}"></script>
+    <script th:src="@{../pintuer/jquery.js}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+    <!-- Dropdownhover CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-dropdownhover.min.css" type="text/css">
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="../assets/font/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../assets/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <!-- Owl Carousel Assets -->
+    <link href="../assets/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../assets/owl-carousel/owl.theme.css" rel="stylesheet">
+    <script src="../libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
+</head>
+<body>
+<div class="top-menu">
+    <!-- top-header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="phone dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-globe" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="social">
+                        <ul>
+                            <li><a th:href="@{/types}" href="#">分类字幕检索</a></li>
+                            <li>|</li>
+                            <li><a th:href="@{/getAllKeysetByPage}" href="#">单词检索</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /top-header -->
+    <!-- mainNav -->
+</div>
+<table class="table table-hover " id="example"  cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>动作</th>
+        <th>英文单词</th>
+        <th>汉译</th>
+        <th>词性</th>
+        <th>等级</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="keyData:${wordList}">
+        <th><a th:class="icon-search-plus" th:href="@{/search(keywords=${keyData.engKey})}"></a></th>
+        <th th:text="${keyData.engKey}"></th>
+        <th th:text="${keyData.chaKey}"></th>
+        <th th:text="${keyData.keyType}"></th>
+        <th th:text="${keyData.keyLevel}"></th>
+    </tr>
+    </tbody>
+</table>
+<div th:insert="~{/public/lower :: under}"></div>
+</body>
+</html>

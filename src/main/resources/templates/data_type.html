@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>分类</title>
+    <link rel="stylesheet" th:href="@{../pintuer/pintuer.css}" type="text/css">
+    <script th:src="@{../pintuer/pintuer.js}"></script>
+    <script th:src="@{../pintuer/jquery.js}"></script>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+    <!-- Dropdownhover CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-dropdownhover.min.css" type="text/css">
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="../assets/font/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../assets/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <!-- Owl Carousel Assets -->
+    <link href="../assets/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../assets/owl-carousel/owl.theme.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:insert="~{public/bar :: top}"></div>
+<div class="header-title">
+    <!--可以在控制器中传递参数在About Us中取出，显示目前的网页-->
+    <h1 th:text="${about}">About Us</h1>
+</div>
+<section class="courses">
+    <!-- .courses -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- .about-text1 -->
+                <div class="about-text1 text-center">
+                    <h2>We Are <span>EMCC</span></h2>
+                </div>
+                <!-- /.about-text1 -->
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <h3>Our Course Plan</h3>
+                    <ul class="list-group">
+                        <li><h2><a th:href="@{/getTalk}">演讲</a></h2></li>
+                        <li><h2><a th:href="@{#}">卡通</a></h2></li>
+                        <li><h2><a th:href="@{#}">电影</a></h2></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <img src="../assets/img/about-img.jpg" alt="about img">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <!-- .about-text1 -->
+                <div class="about-text3 text-center">
+                    <h3>Efforts will never be disappointed</h3>
+                    <p>Every second brings a fresh beginning, every hour holds a new promise, every night dreams can bring hope, and every day is what we choose to make it. </p>
+                </div>
+                <!-- /.about-text1 -->
+            </div>
+        </div>
+    </div>
+    <!-- /.courses -->
+</section>
+<div th:insert="~{/public/lower :: under}"></div>
+</body>
+</html>

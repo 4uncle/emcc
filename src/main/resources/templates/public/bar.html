@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title></title>
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+<!-- Dropdownhover CSS -->
+<link rel="stylesheet" href="../assets/css/bootstrap-dropdownhover.min.css" type="text/css">
+<!-- fonts awesome -->
+<link rel="stylesheet" href="../assets/font/css/font-awesome.min.css" type="text/css">
+<!-- Plugin CSS -->
+<link rel="stylesheet" href="../assets/css/animate.min.css" type="text/css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+<!-- Owl Carousel Assets -->
+<link href="../assets/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="../assets/owl-carousel/owl.theme.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="../libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="../libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+ <div th:fragment="top">
+<!-- Preloader -->
+   <div id="preloader">
+	<div id="loading">
+	</div>
+   </div>
+   <header class="insid-header">
+	<!-- top-menu -->
+	<div class="top-menu">
+		<!-- top-header -->
+		<div class="top-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="phone dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i class="fa fa-globe" aria-hidden="true"></i></a>
+							 <ul class="dropdown-menu">
+							</ul>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="social">
+							<ul>
+								<li><a th:href="@{/types}" href="#">分类字幕检索</a></li>
+								<li>|</li>
+								<li><a th:href="@{/getAllKeysetByPage}" href="#">单词检索</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /top-header -->
+		<!-- mainNav -->
+		<div id="mainNav" class="navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<nav class="navbar navbar-inverse navbar-default">
+
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" th:href="@{/}" href=""><img src="../assets/img/logo.png" alt="logo"></a>
+							<div class="navbar-form navbar-left">
+								<form th:action="@{/search}" th:method="get">
+									<input type="text" class="input input-auto text-black" name="keywords" size="100" placeholder="关键词" />
+									<button class="button" type="submit"><p class="text-red">搜索</p></button>
+								</form>
+							</div>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!-- /mainNav -->
+
+	<!-- /top-menu -->
+	<!-- header-title -->
+
+	<!-- /header-title -->
+</header>
+<!--主体区域，在这个区域内引入字幕或者单词-->
+
+
+
+<!-- jQuery -->
+<script src="../assets/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap-dropdownhover.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="../assets/js/jquery.easing.min.js"></script>
+<script src="../assets/js/jquery.fittext.js"></script>
+<script src="../assets/js/wow.min.js"></script>
+<!-- Resource jQuery -->
+<!--  countTo JavaScript  -->
+<script type="text/javascript" src="../assets/js/jquery.countTo.js"></script>
+<!-- owl carousel -->
+<script src="../assets/owl-carousel/owl.carousel.js"></script>
+<!--  Custom Theme JavaScript  -->
+<script src="../assets/js/custom.js"></script>
+</body>
+
+</html>

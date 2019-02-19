@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>数据展示</title>
+    <link rel="stylesheet" th:href="@{../pintuer/pintuer.css}" type="text/css">
+    <script th:src="@{../pintuer/pintuer.js}"></script>
+    <script th:src="@{../pintuer/jquery.js}"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type="text/css">
+    <!-- Dropdownhover CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-dropdownhover.min.css" type="text/css">
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="../assets/font/css/font-awesome.min.css" type="text/css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../assets/css/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <!-- Owl Carousel Assets -->
+    <link href="../assets/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="../assets/owl-carousel/owl.theme.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--引入JavaScript-->
+    <script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<body>
+
+<div th:insert="~{public/bar :: top}"></div>
+    <!--show data-->
+<div class="header-title">
+    <!--可以在控制器中传递参数在About Us中取出，显示目前的网页-->
+    <h1 th:text="${dataMap.about}">About Us</h1>
+</div>
+    <table id="example"  class="table table-hover ">
+        <thead>
+        <tr>
+            <th>动作</th>
+            <th>视频名</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>英语字幕</th>
+            <th>中文字幕</th>
+            <th>类型</th>
+            <th>情感</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--迭代数据库数据-->
+        <!--/*@thymesVar id="dataMap" type=""*/-->
+        <tr th:each="allData:${dataMap.allData}">
+            <th><a th:class="icon-film" th:href="@{/videoPlay(videoName=${allData.videoName},startTime=${allData.subStartTime},endTime=${allData.subEndTime})}"></a></th>
+            <th>[[${allData.videoName}]]</th>
+            <th>[[${allData.subStartTime}]]</th>
+            <th>[[${allData.subEndTime}]]</th>
+            <th th:id="eng">[[${allData.englishSubtitle}]]</th>
+            <th th:id="cha">[[${allData.chineseSubtitle}]]</th>
+            <th>[[${allData.videoType}]]</th>
+            <th><div>
+                <span th:if="${allData.emotion} gt 0 and ${allData.emotion} le 0.25"th:class="'icon-frown-o'"></span>
+                <span th:if="${allData.emotion} gt 0.25 and ${allData.emotion} le 0.45"th:class="'icon-meh-o'"></span>
+                <span th:if="${allData.emotion} gt 0.45 and ${allData.emotion} le 1.0"th:class="'icon-smile-o'"></span>
+            </div>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="pagination">
+        <li><a th:href="@{${dataMap.req}(flag=2,page=${dataMap.currentPage},keywords=${dataMap.keywords})}" href="#">«</a> </li>
+        <li ><a th:href="@{${dataMap.req}(page=1,keywords=${dataMap.keywords})}" th:class="${dataMap.currentPage==1?'active':''}" href="#">1</a> </li>
+        <li><a th:href="@{${dataMap.req}(page=2,keywords=${dataMap.keywords})}" th:class="${dataMap.currentPage==2?'active':''}" href="#">2</a> </li>
+        <li><a th:href="@{${dataMap.req}(page=3,keywords=${dataMap.keywords})}" th:class="${dataMap.currentPage==3?'active':''}" href="#">3</a> </li>
+        <li><a th:href="@{${dataMap.req}(page=4,keywords=${dataMap.keywords})}" th:class="${dataMap.currentPage==4?'active':''}" href="#">4</a> </li>
+        <li><a th:href="@{${dataMap.req}(page=5,keywords=${dataMap.keywords})}" th:class="${dataMap.currentPage==5?'active':''}" href="#">5</a> </li>
+        <li><a th:href="@{${dataMap.req}(flag=1,page=${dataMap.currentPage},keywords=${dataMap.keywords})}" href="#">»</a> </li>
+    </ul>
+
+<div th:insert="~{/public/lower :: under}"></div>
+</body>
+</html>
