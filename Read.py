@@ -36,6 +36,6 @@ class Read(object):
 				 datasetList.append(d)
 		return datasetList
 
-
+#参数分别为英文字幕路径，中文字幕路径，影片明以及影片类型
 Read.file_read_two('F:\\data\\db1\\[Karen.Thompson.Walker.我们能从恐惧中学到什么].KarenThompsonWalker_2012G-480p.chs.srt','F:\\data\\db1\\[Karen.Thompson.Walker.我们能从恐惧中学到什么].KarenThompsonWalker_2012G-480p.eng.srt','我们能从恐惧中学到什么','演讲')
 input('enter a key out of the test')
