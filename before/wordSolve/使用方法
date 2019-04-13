@@ -3,6 +3,16 @@
 请确保安装一下两个模组
 .jieba
 .nltk
-2.使用方法
+2.内容详情
+chg4.txt:四级英语的中文库
+chg4.txt：六级英语的中文库
+eng4.txt：四级英语的英文库
+eng6.txt：六级英语的英文库
+Read_dir.py：批量读取
+wordutil.py：前处理工具
+dirty_data.txt:中文预处理数据
+dirty_data_eng.txt:英文预处理数据
+stop_word.txt:停用字
+3.使用方法
 在dir_read()中写入文件全路径，会读取文件夹内所有的字幕档的数据并且将数据写入dirty_data.txt:中文预处理数据 和 dirty_data_eng.txt:英文预处理数据
 然后启动wordutil就可以写入dataset.txt
