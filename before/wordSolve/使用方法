@@ -1,0 +1,8 @@
+使用说明
+1.工具依赖
+请确保安装一下两个模组
+.jieba
+.nltk
+2.使用方法
+在dir_read()中写入文件全路径，会读取文件夹内所有的字幕档的数据并且将数据写入dirty_data.txt:中文预处理数据 和 dirty_data_eng.txt:英文预处理数据
+然后启动wordutil就可以写入dataset.txt
